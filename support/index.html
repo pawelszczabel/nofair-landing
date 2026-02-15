@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — No Fair</title>
+    <meta name="description" content="Contact the No Fair team. We're here to help.">
+    <meta name="theme-color" content="#0D0D0D">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0D0D0D;
+            color: #E8E8E8;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 580px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #8A8A8A;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #E8E8E8;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #8A8A8A;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #8A8A8A;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            background: #1A1A1A;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 14px 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: #E8E8E8;
+            outline: none;
+            transition: border-color 0.2s;
+            margin-bottom: 24px;
+            -webkit-appearance: none;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: rgba(212, 168, 67, 0.4);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #555;
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        select {
+            cursor: pointer;
+            color: #8A8A8A;
+        }
+
+        select option {
+            background: #1A1A1A;
+            color: #E8E8E8;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: #C23B3B;
+            color: #E8E8E8;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 32px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success {
+            display: none;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .success.show {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .success h2 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .success p {
+            color: #8A8A8A;
+            font-size: 15px;
+        }
+
+        .or-email {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .or-email a {
+            color: #D4A843;
+            text-decoration: none;
+        }
+
+        .or-email a:hover {
+            text-decoration: underline;
+        }
+
+        a {
+            color: #D4A843;
+        }
+
+        .footer-legal {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+        }
+
+        .footer-legal p {
+            font-size: 12px;
+            color: #555;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 20px;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: #8A8A8A;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #E8E8E8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Back to No Fair</a>
+        <h1>Support</h1>
+        <p class="subtitle">Have a question, found a bug, or need help? Fill out the form below and we'll get back to
+            you as soon as possible.</p>
+
+        <form id="contactForm" action="https://formsubmit.co/pawelszczabel@gmail.com" method="POST">
+            <!-- FormSubmit config -->
+            <input type="hidden" name="_subject" value="No Fair Support Request">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="">
+            <input type="text" name="_honey" style="display:none">
+
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email address" required>
+
+            <label for="topic">Topic</label>
+            <select id="topic" name="topic" required>
+                <option value="" disabled selected>Choose a topic</option>
+                <option value="Bug Report">Bug Report</option>
+                <option value="Account Issue">Account Issue</option>
+                <option value="Feature Request">Feature Request</option>
+                <option value="Data Request (GDPR)">Data Request (GDPR)</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us what's going on..." required></textarea>
+
+            <button type="submit" class="btn" id="submitBtn">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" viewBox="0 0 24 24">
+                    <path d="M22 2 11 13" />
+                    <path d="M22 2 15 22 11 13 2 9z" />
+                </svg>
+                Send Message
+            </button>
+        </form>
+
+        <p class="or-email">
+            Or email us directly at <a href="mailto:pawelszczabel@gmail.com">pawelszczabel@gmail.com</a>
+        </p>
+
+        <div class="footer-legal">
+            <nav class="footer-links">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/eula">EULA</a>
+                <a href="/support">Support</a>
+            </nav>
+            <p>© 2026 Paweł Szczabel · NIP: 9910361892</p>
+        </div>
+    </div>
+
+    <script>
+        // Set _next to redirect back to this page after submission
+        document.querySelector('input[name="_next"]').value = window.location.href + '?sent=1';
+
+        // Show success message if redirected back
+        if (window.location.search.includes('sent=1')) {
+            document.getElementById('contactForm').style.display = 'none';
+            const success = document.createElement('div');
+            success.className = 'success show';
+            success.innerHTML = '<div class="success-icon">✅</div><h2>Message Sent!</h2><p>Thanks for reaching out. We\'ll get back to you within 48 hours.</p>';
+            document.querySelector('.subtitle').after(success);
+        }
+    </script>
+</body>
+
+</html>
