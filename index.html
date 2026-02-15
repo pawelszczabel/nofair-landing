@@ -575,6 +575,68 @@
             font-weight: 500;
         }
 
+        /* ═══════════ PHONE MOCKUPS ═══════════ */
+        .phone-showcase {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 48px;
+            flex-wrap: wrap;
+        }
+
+        .phone-frame {
+            width: 240px;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 255, 255, 0.03);
+            border: 2px solid var(--border);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .phone-frame:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(255, 255, 255, 0.05);
+        }
+
+        .phone-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .phone-frame.large {
+            width: 280px;
+        }
+
+        .step-mockup {
+            display: flex;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        .step-mockup .phone-frame {
+            width: 200px;
+            border-radius: 20px;
+        }
+
+        @media (max-width: 700px) {
+            .phone-showcase {
+                gap: 16px;
+            }
+
+            .phone-frame {
+                width: 160px;
+            }
+
+            .phone-frame.large {
+                width: 200px;
+            }
+
+            .step-mockup .phone-frame {
+                width: 160px;
+            }
+        }
+
         /* ═══════════ FINAL CTA ═══════════ */
         .final-cta {
             padding: 80px 24px 120px;
@@ -771,6 +833,16 @@
                         someone will hear it.</p>
                 </div>
             </div>
+
+            <!-- App screenshots -->
+            <div class="phone-showcase reveal">
+                <div class="phone-frame">
+                    <img src="img/app-home.png" alt="No Fair app — Lonely emotion button selected" loading="lazy">
+                </div>
+                <div class="phone-frame">
+                    <img src="img/app-anger.png" alt="No Fair app — Anger emotion button selected" loading="lazy">
+                </div>
+            </div>
         </section>
 
         <!-- ═══ HOW IT WORKS ═══ -->
@@ -811,6 +883,12 @@
                         <div class="step-title">Others get notified</div>
                         <p class="step-desc">Everyone in the No Fair community receives a push notification that someone
                             needs support right now.</p>
+                        <div class="step-mockup">
+                            <div class="phone-frame">
+                                <img src="img/notifications.png" alt="No Fair push notifications on iPhone"
+                                    loading="lazy">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -834,6 +912,12 @@
                         <div class="step-title">See how many people care</div>
                         <p class="step-desc">Check your History to see exactly how many people supported your signal.
                             You'll also get notified at milestones — 5, 10, 50, 100 people and more.</p>
+                        <div class="step-mockup">
+                            <div class="phone-frame">
+                                <img src="img/history.png" alt="No Fair app — History screen with support counters"
+                                    loading="lazy">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
