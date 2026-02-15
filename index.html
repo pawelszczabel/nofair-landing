@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Fair — A Quiet Rebellion</title>
+    <meta name="description"
+        content="No Fair is a mobile app for anonymous emotional expression. Send signals, get support, stay anonymous.">
+    <meta name="theme-color" content="#0D0D0D">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0D0D0D;
+            --bg-secondary: #1A1A1A;
+            --text: #E8E8E8;
+            --text-secondary: #8A8A8A;
+            --text-muted: #555555;
+            --accent: #C23B3B;
+            --accent-dim: #8A2A2A;
+            --accent-support: #D4A843;
+            --accent-anger: #E85D04;
+            --accent-loneliness: #4A6FA5;
+            --glass-border: rgba(255, 255, 255, 0.06);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Ambient glow background */
+        .ambient {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .ambient .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .ambient .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .ambient .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-loneliness);
+            bottom: 20%;
+            right: -80px;
+            animation-delay: 3s;
+        }
+
+        .ambient .orb-3 {
+            width: 250px;
+            height: 250px;
+            background: var(--accent-anger);
+            top: 40%;
+            left: 30%;
+            animation-delay: 5s;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.06;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.12;
+                transform: scale(1.15);
+            }
+        }
+
+        /* Layout */
+        .page {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Hero */
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px 60px;
+            min-height: 85vh;
+        }
+
+        .wordmark {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: 12px;
+            color: var(--text);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .tagline {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            max-width: 400px;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        /* Emotion circles */
+        .emotions {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 56px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .emotion-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 4px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+        }
+
+        .emotion-circle:hover {
+            transform: scale(1.1);
+        }
+
+        .emotion-circle.rebellion {
+            background: var(--accent);
+            box-shadow: 0 0 30px rgba(194, 59, 59, 0.3);
+        }
+
+        .emotion-circle.anger {
+            background: var(--accent-anger);
+            box-shadow: 0 0 30px rgba(232, 93, 4, 0.3);
+        }
+
+        .emotion-circle.loneliness {
+            background: var(--accent-loneliness);
+            box-shadow: 0 0 30px rgba(74, 111, 165, 0.3);
+        }
+
+        .emotion-emoji {
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .emotion-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.85);
+            text-transform: uppercase;
+        }
+
+        /* App Store button */
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--text);
+            color: var(--bg);
+            padding: 16px 32px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .store-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.12);
+        }
+
+        .store-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .store-btn-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .store-btn-sub {
+            font-size: 11px;
+            font-weight: 500;
+            opacity: 0.7;
+            line-height: 1;
+        }
+
+        .store-btn-main {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 24px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 24px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .wordmark {
+                font-size: 36px;
+                letter-spacing: 8px;
+            }
+
+            .tagline {
+                font-size: 16px;
+            }
+
+            .emotions {
+                gap: 14px;
+            }
+
+            .emotion-circle {
+                width: 68px;
+                height: 68px;
+            }
+
+            .emotion-emoji {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Ambient glow -->
+    <div class="ambient">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="page">
+        <!-- Hero -->
+        <section class="hero">
+            <h1 class="wordmark">No Fair</h1>
+            <p class="tagline">
+                When life isn't fair, when anger has nowhere to go,
+                when loneliness feels unbearable — press a button.
+                Someone out there will hear you. Anonymously.
+            </p>
+
+            <div class="emotions">
+                <div class="emotion-circle rebellion">
+                    <span class="emotion-emoji">✊</span>
+                    <span class="emotion-label">No Fair</span>
+                </div>
+                <div class="emotion-circle anger">
+                    <span class="emotion-emoji">🔥</span>
+                    <span class="emotion-label">Anger</span>
+                </div>
+                <div class="emotion-circle loneliness">
+                    <span class="emotion-emoji">🌊</span>
+                    <span class="emotion-label">Lonely</span>
+                </div>
+            </div>
+
+            <!-- App Store Button -->
+            <a href="#" class="store-btn" id="storeBtn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                </svg>
+                <div class="store-btn-text">
+                    <span class="store-btn-sub">Download on the</span>
+                    <span class="store-btn-main">App Store</span>
+                </div>
+            </a>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <nav class="footer-links">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
+                    <a href="/eula">EULA</a>
+                    <a href="mailto:pawelszczabel@gmail.com">Support</a>
+                </nav>
+                <p class="footer-copy">
+                    © 2026 Paweł Szczabel · ul. Wygodnowa 51/2A, 45-402 Opole, Poland · NIP: 9910361892
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

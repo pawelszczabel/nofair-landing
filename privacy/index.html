@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — No Fair</title>
+    <meta name="description" content="No Fair Privacy Policy. Learn how we handle your data with GDPR compliance.">
+    <meta name="theme-color" content="#0D0D0D">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0D0D0D;
+            color: #E8E8E8;
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #8A8A8A;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #E8E8E8;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .updated {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #E8E8E8;
+            margin-top: 36px;
+            margin-bottom: 12px;
+        }
+
+        p,
+        ul {
+            font-size: 15px;
+            color: #8A8A8A;
+            margin-bottom: 16px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        a {
+            color: #D4A843;
+        }
+
+        .footer-legal {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+        }
+
+        .footer-legal p {
+            font-size: 12px;
+            color: #555;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 20px;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: #8A8A8A;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #E8E8E8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Back to No Fair</a>
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated: February 15, 2026</p>
+
+        <h2>1. Data Controller</h2>
+        <p>The data controller for the No Fair app is:</p>
+        <p>
+            Paweł Szczabel<br>
+            ul. Wygodnowa 51/2A<br>
+            45-402 Opole, Poland<br>
+            NIP: 9910361892<br>
+            Email: <a href="mailto:pawelszczabel@gmail.com">pawelszczabel@gmail.com</a>
+        </p>
+        <p>For any questions about your data, please contact us at the email address above.</p>
+
+        <h2>2. What Data We Collect</h2>
+        <p>We collect the minimal amount of data necessary to provide the service:</p>
+        <ul>
+            <li><strong>Account information:</strong> email address (or Apple ID token if you sign in with Apple), used
+                for authentication.</li>
+            <li><strong>Signals:</strong> when you send a signal (e.g., "No Fair," "Anger," "Loneliness"), we store the
+                signal type, timestamp, and your anonymous user ID.</li>
+            <li><strong>Support interactions:</strong> when someone supports your signal, we record the anonymous count.
+            </li>
+            <li><strong>Device tokens:</strong> a push notification token to deliver notifications to your device. We do
+                not link this to your identity.</li>
+            <li><strong>Usage data:</strong> rate-limiting timestamps (recent presses, cooldown/lockout times) to
+                enforce fair usage.</li>
+        </ul>
+        <p>We do NOT collect:</p>
+        <ul>
+            <li>Your real name, phone number, or physical address.</li>
+            <li>Location data.</li>
+            <li>Contacts, photos, or any data from other apps.</li>
+            <li>Browsing history or advertising identifiers.</li>
+        </ul>
+
+        <h2>3. Legal Basis for Processing (Art. 6 GDPR)</h2>
+        <p>We process your data based on:</p>
+        <ul>
+            <li><strong>Contract performance (Art. 6(1)(b)):</strong> we need your account data to provide the service
+                you signed up for.</li>
+            <li><strong>Legitimate interest (Art. 6(1)(f)):</strong> we process usage data for rate-limiting and abuse
+                prevention.</li>
+            <li><strong>Consent (Art. 6(1)(a)):</strong> push notifications are only sent with your explicit opt-in.
+            </li>
+        </ul>
+
+        <h2>4. How We Use Your Data</h2>
+        <p>Your data is used exclusively to:</p>
+        <ul>
+            <li>Authenticate your account and maintain your session.</li>
+            <li>Send and receive anonymous emotional signals.</li>
+            <li>Deliver push notifications about support milestones (if you opted in).</li>
+            <li>Enforce rate-limiting to prevent abuse.</li>
+            <li>Respond to your support requests.</li>
+        </ul>
+
+        <h2>5. Data Sharing</h2>
+        <p>We do NOT sell your data to anyone. We share data only with:</p>
+        <ul>
+            <li><strong>Firebase (Google Cloud):</strong> authentication, database, and cloud functions. Data is stored
+                in the EU/US under Google's standard contractual clauses.</li>
+            <li><strong>OneSignal:</strong> push notification delivery. Only your device token is shared, not your
+                identity.</li>
+            <li><strong>Apple/Google:</strong> in-app purchase processing through their respective platforms.</li>
+        </ul>
+        <p>No data is shared with advertisers, data brokers, or any other third parties.</p>
+
+        <h2>6. Data Retention</h2>
+        <ul>
+            <li><strong>Account data:</strong> retained while your account is active. Deleted within 30 days of account
+                deletion.</li>
+            <li><strong>Signals:</strong> retained for the lifetime of the service to maintain support counts.</li>
+            <li><strong>Rate-limiting data:</strong> automatically pruned after the rate-limit window expires (5
+                minutes).</li>
+            <li><strong>Push notification tokens:</strong> deleted when you disable notifications or delete your
+                account.</li>
+        </ul>
+
+        <h2>7. Your Rights (GDPR Art. 15–22)</h2>
+        <p>As a user in the EU/EEA, you have the right to:</p>
+        <ul>
+            <li><strong>Access:</strong> request a copy of all data we hold about you.</li>
+            <li><strong>Rectification:</strong> correct inaccurate data.</li>
+            <li><strong>Erasure ("Right to be Forgotten"):</strong> request deletion of your account and all associated
+                data.</li>
+            <li><strong>Restriction:</strong> request we limit processing of your data.</li>
+            <li><strong>Data Portability:</strong> receive your data in a machine-readable format.</li>
+            <li><strong>Objection:</strong> object to data processing based on legitimate interest.</li>
+            <li><strong>Withdraw Consent:</strong> withdraw consent for push notifications at any time via Settings.
+            </li>
+        </ul>
+        <p>To exercise any of these rights, email us at <a
+                href="mailto:pawelszczabel@gmail.com">pawelszczabel@gmail.com</a>. We will respond within 30 days.</p>
+        <p>You also have the right to lodge a complaint with the Polish supervisory authority:<br>
+            UODO (Urząd Ochrony Danych Osobowych)<br>
+            ul. Stawki 2, 00-193 Warszawa<br>
+            <a href="https://uodo.gov.pl" target="_blank" rel="noopener">uodo.gov.pl</a>
+        </p>
+
+        <h2>8. Account Deletion</h2>
+        <p>You can delete your account at any time from the Settings screen in the app. This will:</p>
+        <ul>
+            <li>Permanently delete your account and authentication data.</li>
+            <li>Remove your signals and associated data.</li>
+            <li>Revoke push notification permissions.</li>
+        </ul>
+        <p>Deletion is irreversible and completed within 30 days.</p>
+
+        <h2>9. Security</h2>
+        <p>We use industry-standard security measures:</p>
+        <ul>
+            <li>All data is transmitted over HTTPS/TLS encryption.</li>
+            <li>Authentication is handled by Firebase Authentication with secure token management.</li>
+            <li>Cloud Functions run in Google Cloud's secure infrastructure.</li>
+            <li>We do not store passwords — authentication uses Firebase's secure hashing.</li>
+        </ul>
+
+        <h2>10. Children's Privacy</h2>
+        <p>No Fair is not intended for children under 13 years of age. We do not knowingly collect data from children.
+            If you believe a child has provided us with data, contact us immediately and we will delete it.</p>
+
+        <h2>11. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Changes will be posted within the app and the "Last
+            Updated" date will be revised. Continued use of the app after changes constitutes acceptance of the updated
+            policy.</p>
+
+        <h2>12. Contact</h2>
+        <p>For privacy-related questions or requests:</p>
+        <p>
+            Paweł Szczabel<br>
+            Email: <a href="mailto:pawelszczabel@gmail.com">pawelszczabel@gmail.com</a><br>
+            Address: ul. Wygodnowa 51/2A, 45-402 Opole, Poland
+        </p>
+
+        <div class="footer-legal">
+            <nav class="footer-links">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/eula">EULA</a>
+                <a href="mailto:pawelszczabel@gmail.com">Support</a>
+            </nav>
+            <p>© 2026 Paweł Szczabel · NIP: 9910361892</p>
+        </div>
+    </div>
+</body>
+
+</html>
