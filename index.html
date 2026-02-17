@@ -30,6 +30,28 @@
     <meta name="twitter:description"
         content="When life isn't fair, when anger has nowhere to go, when loneliness feels unbearable — press a button. Someone will hear you.">
 
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Open Graph Image -->
+    <meta property="og:image" content="https://nofair.app/img/logo.png">
+    <meta property="og:image:alt"
+        content="No Fair app logo — two intertwined human figures symbolizing mutual emotional support, rendered in a warm-to-cool gradient from red-orange to blue on a dark background">
+    <meta property="og:image:width" content="640">
+    <meta property="og:image:height" content="640">
+
+    <!-- Twitter Image -->
+    <meta name="twitter:image" content="https://nofair.app/img/logo.png">
+    <meta name="twitter:image:alt"
+        content="No Fair — anonymous emotional support app logo showing two figures reaching out to each other">
+
+    <!-- GEO Meta Tags -->
+    <meta name="geo.region" content="PL-OP">
+    <meta name="geo.placename" content="Opole, Poland">
+    <meta name="geo.position" content="50.6751;17.9213">
+    <meta name="ICBM" content="50.6751, 17.9213">
+
     <!-- Theme & Appearance -->
     <meta name="theme-color" content="#0A0A0A">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -43,6 +65,8 @@
         "name": "No Fair",
         "description": "No Fair is a mobile app for people who experience injustice, feel lonely, or carry anger inside. Express your emotions anonymously by pressing a button and sending a signal. Other users can support you — also anonymously. You are not alone.",
         "url": "https://nofair.app",
+        "image": "https://nofair.app/img/logo.png",
+        "logo": "https://nofair.app/img/logo.png",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "iOS",
         "offers": { "@type": "Offer", "price": "1.99", "priceCurrency": "USD", "description": "7-day free trial, then $1.99/month" },
@@ -749,6 +773,42 @@
             }
         }
 
+        /* ═══════════ TOP NAV ═══════════ */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 28px;
+            display: flex;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+        }
+
+        .nav-logo span {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.5px;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -771,6 +831,15 @@
         <div class="orb orb-3"></div>
     </div>
 
+    <!-- ═══ TOP NAV ═══ -->
+    <nav class="top-nav">
+        <a href="/" class="nav-logo">
+            <img src="img/logo.png"
+                alt="No Fair app logo — two intertwined human figures symbolizing mutual emotional support, rendered in warm-to-cool gradient representing the transition from distress to hope">
+            <span>No Fair</span>
+        </a>
+    </nav>
+
     <div class="page">
         <!-- ═══ HERO ═══ -->
         <section class="hero">
@@ -778,6 +847,8 @@
                 <span class="dot"></span>
                 7-day free trial on the App Store
             </div>
+
+
 
             <h1>No Fair</h1>
 
